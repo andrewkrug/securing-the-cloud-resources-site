@@ -12,7 +12,7 @@ modules:
     slide_decks:
       - id: "deck-1-1"
         title: "Get acquainted with the AWS platform"
-        link: "https://docs.google.com/presentation/d/1UEpjXpbCVHc8iKcCeUe3IrfkeyRu6qoILCc2a863j8U/edit?usp=sharing"
+        link: "https://docs.google.com/presentation/d/1Pky4AoRu821wD44Lq6sA4fnM3eAaEka3rIXxNuo92ak/edit?usp=drive_link"
         order: 1
         resource_links:
           - title: "AWS Security Best Practices"
@@ -26,8 +26,8 @@ modules:
             description: "NIST cloud security standards and guidelines"
 
       - id: "deck-1-2"
-        title: "Account Setup / Primer"
-        link: "https://docs.google.com/presentation/d/1QG9lZkZEW_y9YgraObAqI_br5oCt5LRdyXa8XdaxVOw/edit?usp=drive_link"
+        title: "Your home lab"
+        link: "https://docs.google.com/presentation/d/1mePhgcBkHbK89iJ0YezMIkkhprX2GvIvo_thwFGjXks/edit?usp=drive_link"
         order: 2
         resource_links:
           - title: "AWS Account Setup Guide"
@@ -36,7 +36,7 @@ modules:
 
       - id: "deck-1-3"
         title: "Billing"
-        link: "https://docs.google.com/presentation/d/1YQGn_lLNR4Q41R4RfWn5mcO9KScaT2Xu4XCk2Si3Too/edit?usp=drive_link"
+        link: "https://docs.google.com/presentation/d/1bH5Ez8wtCbzj4Q-vpmoNMKkXwWyq4uqs3kgMHPpUAZk/edit?usp=drive_link"
         order: 3
         resource_links:
           - title: "AWS Billing and Cost Management"
@@ -48,7 +48,7 @@ modules:
 
       - id: "deck-1-4"
         title: "Logging in the Cloud"
-        link: "https://docs.google.com/presentation/d/1rx4a-2pYO-bkTKo9ymDuuBhmxqZggahk_5rStikCE-I/edit?usp=drive_link"
+        link: "https://docs.google.com/presentation/d/1IjQAOwPla2YwltL43QmXNYed1mSlor9uwJS11YrQfe4/edit?usp=drive_link"
         order: 4
         resource_links:
           - title: "AWS CloudTrail Overview"
@@ -57,23 +57,189 @@ modules:
           - title: "AWS CloudWatch Overview"
             url: "https://docs.aws.amazon.com/cloudwatch/index.html"
             description: "Official AWS CloudWatch documentation"
+
+      - id: "deck-1-5"
+        title: "Exercising CloudTrail Logging"
+        link: "https://docs.google.com/presentation/d/1o__3b2o7ZinFxlngjVUF9E3MoP-UxB-PUWfQ961KxcY/edit?usp=drive_link"
+        order: 5
+        resource_links:
+          - title: "AWS CloudTrail User Guide"
+            url: "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html"
+            description: "Comprehensive guide to using AWS CloudTrail"
+          - title: "CloudTrail Lake"
+            url: "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake.html"
+            description: "Information on CloudTrail Lake features and usage"
+
     labs:
-      - id: "lab-1-1"
-        title: "Lab 1: Get Familiar with Common Issues"
-        link: "https://docs.google.com/document/d/1togCUTocA85pLV-jWolgRTaPDUSp6rihrb-t8CcD964/edit?usp=drive_link"
+      module:
+        - id: "module-1-labs"
+          title: "Module 1 Labs"
+          description: "Hands-on labs to reinforce the concepts learned in Module 1"
+          order: 1
+
+          exercises:
+            - id: "lab-1-1"
+              title: "Lab 1: Get Familiar with Common Issues"
+              link: "https://docs.google.com/document/d/1togCUTocA85pLV-jWolgRTaPDUSp6rihrb-t8CcD964/edit?usp=drive_link"
+              order: 1
+              links:
+                - title: "Cloud Breaches"
+                  url: "https://breaches.cloud/"
+
+            - id: "lab-1-2"
+              title: "Lab 2: Bootstrap your first user and roles"
+              link: "https://docs.google.com/document/d/1WezG8_pmZ4prLcdx0QRZlx9EPYUu25KWYKgHQoznqKw/edit?usp=drive_link"
+              order: 2
+              links:
+                - title: "Cloudformation Stacks"
+                  url: "https://github.com/andrewkrug/securing-the-cloud-supplemental/tree/main/supplemental/01-02"
+                  description: "These are the files with the roles and users you'll create."
+
+            - id: "lab-1-3"
+              title: "Lab 3: Setting up command line access for your user"
+              link: "https://docs.google.com/document/d/1VhmWnEZFgfM79LlOYGxv4qbOKwq9hxvc8RiZ_MJTvHs/edit?tab=t.0"
+              order: 3
+              links:
+                - title: "AWS Vault"
+                  url: "https://github.com/99designs/aws-vault"
+                  description: "AWS Vault Project by 99Designs."
+
+            - id: "lab-1-4"
+              title: "Lab 4: Setting up billing alarms with the AWS CDK"
+              link: "https://docs.google.com/document/d/1VhmWnEZFgfM79LlOYGxv4qbOKwq9hxvc8RiZ_MJTvHs/edit?tab=t.0"
+              order: 4
+              links:
+                - title: "Git Repository for the CDK Example"
+                  url: "https://github.com/andrewkrug/cdk_billing_demo"
+                  description: "This is a vibe coded demo of using the AWS CDK in python to setup billing alarms."
+
+            - id: "lab-1-5"
+              title: "Lab 5: Setting up CloudTrail"
+              link: "https://docs.google.com/document/d/1oQgedeEnqmojSuir9VHTy-RiS5CzTFcOjBamdQcBy2I/edit?tab=t.0"
+              order: 5
+              links:
+                - title: "Git Repository for the CloudTrail Setup"
+                  url: "https://github.com/andrewkrug/single_account_cloudtrail_and_lake"
+                  description: "CloudTrail with S3 and CloudTrail Lake - CloudFormation Template and Reference Queries"
+
+            - id: "lab-1-6"
+              title: "Lab 6: Exercising CloudTrail with Adversary Emulation"
+              link: "https://docs.google.com/document/d/1YnUaAqOaZi84IvI1zTyO3fMh6g8rWsa-4Neig0VFClI/edit?tab=t.0"
+              order: 6
+              links:
+                - title: "Git Repository for the Stratus Red Team Wrapper"
+                  url: "https://github.com/andrewkrug/stratus_cloudshell_example"
+                  description: "An example of what it takes to get stratus red team up and running in AWS Cloudshell quickly for a demo."
+
+  - id: "module-2"
+    title: "Module 2: Deploying a sample application and evolving it"
+    description: "In this lesson you are the solo security engineer for Mr. Bluejays Shoe Store.  You'll be evolving and auditing the application like an expert appsec engineer."
+    order: 1
+
+    slide_decks:
+      - id: "deck-2-1"
+        title: "Your First Service"
+        link: "https://docs.google.com/presentation/d/1CHxxTo2csuwJZBW8pbS--gOzkGlUYiDnwA_WPeFguDQ/edit?usp=drive_link"
         order: 1
-        links:
-          - title: "Cloud Breaches"
-            url: "https://breaches.cloud/"
+        resource_links:
+          - title: "Deploying Applications on AWS"
+            url: "https://aws.amazon.com/getting-started/hands-on/deploy-web-app/"
+            description: "Step-by-step guide to deploying web applications on AWS"
 
-      - id: "lab-1-2"
-        title: "Lab 2: Bootstrap your first user and roles"
-        link: "https://docs.google.com/document/d/1WezG8_pmZ4prLcdx0QRZlx9EPYUu25KWYKgHQoznqKw/edit?usp=drive_link"
+      - id: "deck-2-2"
+        title: "All about IaC (Infrastructure as Code)"
+        link: "hhttps://docs.google.com/presentation/d/1jpFfzDSESpNkmYedEbgNRlDO0ph3rFi6rcDb4fnMjMI/edit?usp=drive_link"
         order: 2
-        links:
-          - title: "Cloudformation Stacks"
-            url: "https://github.com/andrewkrug/securing-the-cloud-supplemental/tree/main/supplemental/01-02"
-            description: "These are the files with the roles and users you'll create."
+        resource_links:
+          - title: "AWS CloudFormation Overview"
+            url: "https://aws.amazon.com/cloudformation/"
+            description: "Official AWS CloudFormation documentation"
+          - title: "AWS CDK Overview"
+            url: "https://aws.amazon.com/cdk/"
+            description: "Official AWS Cloud Development Kit documentation"
 
+      - id: "deck-2-3"
+        title: "Monitoring and Serverless Essentials"
+        link: "https://docs.google.com/presentation/d/1NWjS_tXgxAztkKcOmqun3ASre_gFrr8c9d2XKnv9OwE/edit?usp=drive_link"
+        order: 3
+        resource_links:
+          - title: "AWS Lambda Overview"
+            url: "https://aws.amazon.com/lambda/"
+            description: "Official AWS Lambda documentation"
+          - title: "Monitoring Serverless Applications"
+            url: "https://aws.amazon.com/blogs/compute/monitoring-serverless-applications-with-amazon-cloudwatch/"
+            description: "Best practices for monitoring serverless applications"
 
- 
+      - id: "deck-2-4"
+        title: "Log Interrogation"
+        link: "https://docs.google.com/presentation/d/1zdEMYx_Uua2m3lF-Ggw4w2jOy_IPD8kKuxuEX6wW4Bw/edit?usp=drive_link"
+        order: 4
+        resource_links:
+          - title: "Analyzing CloudTrail Logs"
+            url: "https://aws.amazon.com/premiumsupport/knowledge-center/analyze-cloudtrail-logs-athena/"
+            description: "Guide to analyzing CloudTrail logs using Amazon Athena"
+          - title: "Using CloudWatch Logs Insights"
+            url: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html"
+            description: "Documentation on using CloudWatch Logs Insights for log analysis"
+
+    labs:
+      module:
+        - id: "module-2-labs"
+          title: "Module 2 Labs"
+          description: "Hands-on labs to reinforce the concepts learned in Module 2"
+          order: 1
+
+          exercises:
+            - id: "lab-2-1"
+              title: "Lab 1: Deploy the Shoe Store as a Single Stack"
+              link: "https://docs.google.com/document/d/1Aej3Y_2cXarBv16JEvfiuzPyZEifmjDpnuAyuzMwKwc/edit?tab=t.0"
+              order: 1
+              links:
+                - title: "Git Repository for the Single Stack Shoe Store"
+                  url: "https://github.com/andrewkrug/mr_bluejays_demo_app"
+                  description: "A simple demo application for a retail store on the web with misconfigurations. Based on Mr. Bluejays shoe store version 1."
+
+            - id: "lab-2-2"
+              title: "Lab 2: Deploy the Shoe Store as a Single Stack"
+              link: "https://docs.google.com/document/d/1Aej3Y_2cXarBv16JEvfiuzPyZEifmjDpnuAyuzMwKwc/edit?tab=t.0"
+              order: 2
+              links:
+                - title: "Git Repository for a Terraform Example"
+                  url: "https://github.com/andrewkrug/simple-terraform-application"
+                  description: "A simple demo application for a retail store on the web with misconfigurations. Based on Mr. Bluejays shoe store version 1."
+
+            - id: "lab-2-3"
+              title: "Lab 3: Working with Terraform"
+              link: "https://docs.google.com/document/d/1mGB9pjURv4GAvLT59ftD-cxWYR-h9FvDclQ0d9cHyd0/edit?usp=drive_link"
+              order: 3
+              links:
+                - title: "Git Repository for the Single Stack Shoe Store"
+                  url: "https://github.com/andrewkrug/mr_bluejays_demo_app"
+                  description: "A slightly vulnerable terraform mini project for first blush at terraform."
+
+            - id: "lab-2-4"
+              title: "Lab 4: Setting up Flow Logging"
+              link: "https://docs.google.com/document/d/1t4NIhGjuafvE87U2VutYGBfCiEEYxKjjHd7IcEtPuyg/edit?tab=t.0"
+              order: 4
+              links:
+                - title: "Git Repository for setting up flow logging"
+                  url: "https://github.com/andrewkrug/vpc_flow_logging_example"
+                  description: "A sample of two type of VPC flow logging."
+
+            - id: "lab-2-5"
+              title: "Lab 5: Setting up DNS Logging"
+              link: "https://docs.google.com/document/d/1wZ41Y2lcM24HKajF2dE7FHk60wYZkENCSg0V6NFuruI/edit?tab=t.0"
+              order: 5
+              links:
+                - title: "Git Repository for setting up DNS logging"
+                  url: "https://github.com/andrewkrug/dns_logging_example"
+                  description: "A sample of how to query and enable DNS logs in AWS."
+
+            - id: "lab-2-6"
+              title: "Lab 6: BONUS Lab - Querying Flow Logs Using Athena"
+              link: "https://docs.google.com/document/d/12JW_ML81J4I7FsAD-AJXCxbMByjLQlQRnJm577TjR-M/edit?tab=t.0"
+              order: 6
+              links:
+                - title: "Git Repository for setting up flow logging"
+                  url: "https://github.com/andrewkrug/vpc_flow_logging_example"
+                  description: "A sample of two type of VPC flow logging."

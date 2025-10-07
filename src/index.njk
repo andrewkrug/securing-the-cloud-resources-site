@@ -8,9 +8,15 @@ layout: layout.njk
     {% for module in course.modules %}
     <div class="module" id="{{ module.id }}">
         <div class="module-header" onclick="toggleModule(this)">
-            <div>
+            <div class="module-header-content">
                 <h3>{{ module.title }}</h3>
                 <p class="module-description">{{ module.description }}</p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progress-{{ module.id }}">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <span class="progress-text">0% complete</span>
+                </div>
             </div>
             <span class="toggle-icon">▼</span>
         </div>
@@ -22,12 +28,20 @@ layout: layout.njk
             <div class="items-list">
                 {% for deck in module.slide_decks %}
                 <div class="item">
-                    <div class="item-title">
-                        {% if deck.link %}
-                        <a href="{{ deck.link }}" target="_blank" rel="noopener noreferrer">{{ deck.title }}</a>
-                        {% else %}
-                        {{ deck.title }}
-                        {% endif %}
+                    <div class="item-header">
+                        <div class="completion-checkbox">
+                            <input type="checkbox" id="complete-{{ deck.id }}" class="completion-check" data-module-id="{{ module.id }}" onchange="handleCompletion('{{ deck.id }}', '{{ deck.title }}', 'slide_deck', '{{ module.id }}')">
+                            <label for="complete-{{ deck.id }}" class="checkbox-label">
+                                <span class="checkmark">✓</span>
+                            </label>
+                        </div>
+                        <div class="item-title">
+                            {% if deck.link %}
+                            <a href="{{ deck.link }}" target="_blank" rel="noopener noreferrer">{{ deck.title }}</a>
+                            {% else %}
+                            {{ deck.title }}
+                            {% endif %}
+                        </div>
                     </div>
 
                     {% if deck.resource_links %}
@@ -45,60 +59,99 @@ layout: layout.njk
                         </ul>
                     </div>
                     {% endif %}
+
+                    <div class="feedback-buttons">
+                        <span class="feedback-label">Was this useful?</span>
+                        <button class="feedback-btn thumbs-up" onclick="handleFeedback(this, 'up', '{{ deck.id }}', 'slide_deck', '{{ deck.title }}', '{{ module.id }}')" title="Thumbs up">👍</button>
+                        <button class="feedback-btn thumbs-down" onclick="handleFeedback(this, 'down', '{{ deck.id }}', 'slide_deck', '{{ deck.title }}', '{{ module.id }}')" title="Thumbs down">👎</button>
+                        <a href="https://docs.google.com/forms/d/16sMt5B5h1Be3ni9Hkuy_FDvbPc8ovixCEA2uNR9fNVs/edit" target="_blank" rel="noopener noreferrer" class="give-feedback-link" title="Give detailed feedback">
+                            📝 Give Feedback
+                        </a>
+                    </div>
                 </div>
                 {% endfor %}
             </div>
         </div>
         {% endif %}
 
-        {% if module.labs %}
+        {% if module.labs and module.labs.module %}
         <div class="labs">
             <h4>🧪 Labs</h4>
-            <div class="items-list">
-                {% for lab in module.labs %}
-                <div class="item">
-                    <div class="item-title">
-                        {% if lab.link %}
-                        <a href="{{ lab.link }}" target="_blank" rel="noopener noreferrer">{{ lab.title }}</a>
-                        {% else %}
-                        {{ lab.title }}
-                        {% endif %}
-                    </div>
+            {% for labModule in module.labs.module %}
+            <div class="lab-module-section">
+                {% if labModule.title %}
+                <h5 class="lab-module-title">{{ labModule.title }}</h5>
+                {% endif %}
+                {% if labModule.description %}
+                <p class="lab-module-description">{{ labModule.description }}</p>
+                {% endif %}
 
-                    {% if lab.description %}
-                    <p class="lab-description">{{ lab.description }}</p>
-                    {% endif %}
-
-                    {% if lab.estimated_duration %}
-                    <p class="lab-duration"><strong>Duration:</strong> {{ lab.estimated_duration }}</p>
-                    {% endif %}
-
-                    {% if lab.github_link %}
-                    <p class="github-link">
-                        <a href="{{ lab.github_link }}" target="_blank" rel="noopener noreferrer">
-                            <strong>GitHub Repository →</strong>
-                        </a>
-                    </p>
-                    {% endif %}
-
-                    {% if lab.links %}
-                    <div class="resource-links">
-                        <strong>Links:</strong>
-                        <ul>
-                            {% for link in lab.links %}
-                            <li>
-                                <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.title }}</a>
-                                {% if link.description %}
-                                <span class="resource-description"> - {{ link.description }}</span>
+                {% if labModule.exercises %}
+                <div class="items-list">
+                    {% for exercise in labModule.exercises %}
+                    <div class="item">
+                        <div class="item-header">
+                            <div class="completion-checkbox">
+                                <input type="checkbox" id="complete-{{ exercise.id }}" class="completion-check" data-module-id="{{ module.id }}" onchange="handleCompletion('{{ exercise.id }}', '{{ exercise.title }}', 'lab', '{{ module.id }}')">
+                                <label for="complete-{{ exercise.id }}" class="checkbox-label">
+                                    <span class="checkmark">✓</span>
+                                </label>
+                            </div>
+                            <div class="item-title">
+                                {% if exercise.link %}
+                                <a href="{{ exercise.link }}" target="_blank" rel="noopener noreferrer">{{ exercise.title }}</a>
+                                {% else %}
+                                {{ exercise.title }}
                                 {% endif %}
-                            </li>
-                            {% endfor %}
-                        </ul>
+                            </div>
+                        </div>
+
+                        {% if exercise.description %}
+                        <p class="lab-description">{{ exercise.description }}</p>
+                        {% endif %}
+
+                        {% if exercise.estimated_duration %}
+                        <p class="lab-duration"><strong>Duration:</strong> {{ exercise.estimated_duration }}</p>
+                        {% endif %}
+
+                        {% if exercise.github_link %}
+                        <p class="github-link">
+                            <a href="{{ exercise.github_link }}" target="_blank" rel="noopener noreferrer">
+                                <strong>GitHub Repository →</strong>
+                            </a>
+                        </p>
+                        {% endif %}
+
+                        {% if exercise.links %}
+                        <div class="resource-links">
+                            <strong>Links:</strong>
+                            <ul>
+                                {% for link in exercise.links %}
+                                <li>
+                                    <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.title }}</a>
+                                    {% if link.description %}
+                                    <span class="resource-description"> - {{ link.description }}</span>
+                                    {% endif %}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+
+                        <div class="feedback-buttons">
+                            <span class="feedback-label">Was this useful?</span>
+                            <button class="feedback-btn thumbs-up" onclick="handleFeedback(this, 'up', '{{ exercise.id }}', 'lab', '{{ exercise.title }}', '{{ module.id }}')" title="Thumbs up">👍</button>
+                            <button class="feedback-btn thumbs-down" onclick="handleFeedback(this, 'down', '{{ exercise.id }}', 'lab', '{{ exercise.title }}', '{{ module.id }}')" title="Thumbs down">👎</button>
+                            <a href="https://docs.google.com/forms/d/16sMt5B5h1Be3ni9Hkuy_FDvbPc8ovixCEA2uNR9fNVs/edit" target="_blank" rel="noopener noreferrer" class="give-feedback-link" title="Give detailed feedback">
+                                📝 Give Feedback
+                            </a>
+                        </div>
                     </div>
-                    {% endif %}
+                    {% endfor %}
                 </div>
-                {% endfor %}
+                {% endif %}
             </div>
+            {% endfor %}
         </div>
         {% endif %}
         </div>
@@ -123,10 +176,168 @@ function toggleModule(header) {
     }
 }
 
+function updateModuleProgress(moduleId) {
+    const moduleElement = document.getElementById(moduleId);
+    const checkboxes = moduleElement.querySelectorAll('.completion-check');
+    const totalItems = checkboxes.length;
+    const completedItems = Array.from(checkboxes).filter(cb => cb.checked).length;
+    const percentage = totalItems > 0 ? Math.round((completedItems / totalItems) * 100) : 0;
+
+    const progressBar = document.getElementById(`progress-${moduleId}`);
+    const progressFill = progressBar.querySelector('.progress-fill');
+    const progressText = progressBar.parentElement.querySelector('.progress-text');
+
+    progressFill.style.width = `${percentage}%`;
+    progressText.textContent = `${percentage}% complete (${completedItems}/${totalItems})`;
+
+    // Update progress bar color based on completion
+    if (percentage === 100) {
+        progressFill.style.background = '#4caf50';
+    } else if (percentage >= 50) {
+        progressFill.style.background = '#667eea';
+    } else {
+        progressFill.style.background = '#667eea';
+    }
+}
+
+function handleCompletion(itemId, itemTitle, itemType, moduleId) {
+    const checkbox = document.getElementById(`complete-${itemId}`);
+    const isCompleted = checkbox.checked;
+    const itemElement = checkbox.closest('.item');
+
+    // Store completion state in localStorage
+    const completionKey = `completed-${itemId}`;
+
+    if (isCompleted) {
+        localStorage.setItem(completionKey, 'true');
+        itemElement.classList.add('completed');
+
+        // Track completion in Datadog RUM with detailed context
+        if (window.DD_RUM) {
+            window.DD_RUM.addAction('item_marked_complete', {
+                item_id: itemId,
+                item_type: itemType,
+                item_title: itemTitle,
+                module_id: moduleId,
+                completed_at: new Date().toISOString(),
+                action: 'marked_done'
+            });
+        }
+    } else {
+        localStorage.removeItem(completionKey);
+        itemElement.classList.remove('completed');
+
+        // Track un-completion in Datadog RUM
+        if (window.DD_RUM) {
+            window.DD_RUM.addAction('item_marked_incomplete', {
+                item_id: itemId,
+                item_type: itemType,
+                item_title: itemTitle,
+                module_id: moduleId,
+                uncompleted_at: new Date().toISOString(),
+                action: 'unmarked_done'
+            });
+        }
+    }
+
+    // Update module progress
+    updateModuleProgress(moduleId);
+}
+
+function handleFeedback(button, type, itemId, itemType, itemTitle, moduleId) {
+    const feedbackButtons = button.parentElement;
+    const buttons = feedbackButtons.querySelectorAll('.feedback-btn');
+
+    // Check if this button was already selected
+    const wasSelected = button.classList.contains('selected');
+
+    // Remove selected state from all buttons in this group
+    buttons.forEach(btn => btn.classList.remove('selected'));
+
+    // If it wasn't selected, select it now
+    if (!wasSelected) {
+        button.classList.add('selected');
+
+        // Store feedback in localStorage
+        const feedbackKey = `feedback-${itemId}`;
+        localStorage.setItem(feedbackKey, type);
+
+        // Track feedback in Datadog RUM with detailed context
+        if (window.DD_RUM) {
+            window.DD_RUM.addAction('feedback_submitted', {
+                item_id: itemId,
+                item_type: itemType,
+                item_title: itemTitle,
+                module_id: moduleId,
+                feedback_type: type,
+                timestamp: new Date().toISOString()
+            });
+        }
+
+        // Show thank you message
+        const label = feedbackButtons.querySelector('.feedback-label');
+        const originalText = label.textContent;
+        label.textContent = 'Thank you for your feedback!';
+
+        setTimeout(() => {
+            label.textContent = originalText;
+        }, 2000);
+    } else {
+        // Remove feedback from localStorage
+        localStorage.removeItem(`feedback-${itemId}`);
+
+        // Track feedback removal in Datadog RUM
+        if (window.DD_RUM) {
+            window.DD_RUM.addAction('feedback_removed', {
+                item_id: itemId,
+                item_type: itemType,
+                item_title: itemTitle,
+                module_id: moduleId,
+                timestamp: new Date().toISOString()
+            });
+        }
+    }
+}
+
 // Initialize all modules as expanded on page load
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.module-content').forEach(content => {
         content.style.maxHeight = content.scrollHeight + 'px';
+    });
+
+    // Restore completion checkboxes from localStorage
+    document.querySelectorAll('.completion-check').forEach(checkbox => {
+        const itemId = checkbox.id.replace('complete-', '');
+        const completionKey = `completed-${itemId}`;
+        const isCompleted = localStorage.getItem(completionKey) === 'true';
+
+        if (isCompleted) {
+            checkbox.checked = true;
+            const itemElement = checkbox.closest('.item');
+            if (itemElement) {
+                itemElement.classList.add('completed');
+            }
+        }
+    });
+
+    // Calculate and display progress for all modules
+    document.querySelectorAll('.module').forEach(moduleElement => {
+        const moduleId = moduleElement.id;
+        updateModuleProgress(moduleId);
+    });
+
+    // Restore feedback from localStorage
+    document.querySelectorAll('.feedback-btn').forEach(button => {
+        const itemId = button.onclick.toString().match(/'([^']+)'/)[1];
+        const feedbackKey = `feedback-${itemId}`;
+        const savedFeedback = localStorage.getItem(feedbackKey);
+
+        if (savedFeedback) {
+            const type = button.onclick.toString().includes("'up'") ? 'up' : 'down';
+            if (savedFeedback === type) {
+                button.classList.add('selected');
+            }
+        }
     });
 });
 </script>
