@@ -1,0 +1,79 @@
+course:
+  title: "Securing the Cloud Resources"
+  description: "A comprehensive course on cloud security best practices, threat detection, and defensive strategies"
+  version: "1.0.0"
+
+modules:
+  - id: "module-1"
+    title: "Module 1: Forming your world"
+    description: "In this lesson you'll become familiar with the AWS Platform, bootstrap a first user, setup billing, and get a primer on logging."
+    order: 1
+
+    slide_decks:
+      - id: "deck-1-1"
+        title: "001 - Get acquainted with the AWS platform"
+        link: "https://docs.google.com/presentation/d/1UEpjXpbCVHc8iKcCeUe3IrfkeyRu6qoILCc2a863j8U/edit?usp=sharing"
+        order: 1
+        resource_links:
+          - title: "AWS Security Best Practices"
+            url: "https://aws.amazon.com/security/best-practices/"
+            description: "Official AWS security documentation"
+          - title: "Cloud Security Alliance Guidelines"
+            url: "https://cloudsecurityalliance.org/"
+            description: "Industry standard security frameworks"
+          - title: "NIST Cloud Computing Standards"
+            url: "https://www.nist.gov/programs-projects/cloud-computing"
+            description: "NIST cloud security standards and guidelines"
+
+      - id: "deck-1-2"
+        title: "Account Setup / Primer"
+        link: "https://docs.google.com/presentation/d/1QG9lZkZEW_y9YgraObAqI_br5oCt5LRdyXa8XdaxVOw/edit?usp=drive_link"
+        order: 2
+        resource_links:
+          - title: "AWS Account Setup Guide"
+            url: "https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/"
+            description: "Step-by-step guide to setting up an AWS account"
+
+      - id: "deck-1-3"
+        title: "Billing"
+        link: "https://docs.google.com/presentation/d/1YQGn_lLNR4Q41R4RfWn5mcO9KScaT2Xu4XCk2Si3Too/edit?usp=drive_link"
+        order: 3
+        resource_links:
+          - title: "AWS Billing and Cost Management"
+            url: "https://aws.amazon.com/aws-cost-management/"
+            description: "Official AWS billing and cost management documentation"
+          - title: "Cost Optimization Strategies"
+            url: "https://aws.amazon.com/architecture/cost-optimization/"
+            description: "Best practices for optimizing cloud costs"
+
+      - id: "deck-1-4"
+        title: "Logging in the Cloud"
+        link: "https://docs.google.com/presentation/d/1rx4a-2pYO-bkTKo9ymDuuBhmxqZggahk_5rStikCE-I/edit?usp=drive_link"
+        order: 4
+        resource_links:
+          - title: "AWS CloudTrail Overview"
+            url: "https://docs.aws.amazon.com/cloudtrail/index.html"
+            description: "Official AWS CloudTrail documentation"
+          - title: "AWS CloudWatch Overview"
+            url: "https://docs.aws.amazon.com/cloudwatch/index.html"
+            description: "Official AWS CloudWatch documentation"
+    labs:
+      - id: "lab-1-1"
+        title: "Lab 1: Get Familiar with Common Issues"
+        link: "https://docs.google.com/document/d/1togCUTocA85pLV-jWolgRTaPDUSp6rihrb-t8CcD964/edit?usp=drive_link"
+        order: 1
+        links:
+          - title: "Cloud Breaches"
+            url: "https://breaches.cloud/"
+
+      - id: "lab-1-2"
+        title: "Lab 2: Bootstrap your first user and roles"
+        link: "https://docs.google.com/document/d/1WezG8_pmZ4prLcdx0QRZlx9EPYUu25KWYKgHQoznqKw/edit?usp=drive_link"
+        order: 2
+        links:
+          - title: "Cloudformation Stacks"
+            url: "https://github.com/andrewkrug/securing-the-cloud-supplemental/tree/main/supplemental/01-02"
+            description: "These are the files with the roles and users you'll create."
+
+
+ 

@@ -1,0 +1,102 @@
+---
+layout: layout.njk
+---
+
+<div class="course-overview">
+    <h2>Course Modules</h2>
+
+    {% for module in course.modules %}
+    <div class="module" id="{{ module.id }}">
+        <div class="module-header">
+            <h3>{{ module.title }}</h3>
+            <p class="module-description">{{ module.description }}</p>
+        </div>
+
+        {% if module.slide_decks %}
+        <div class="slide-decks">
+            <h4>📊 Slide Decks</h4>
+            <div class="items-list">
+                {% for deck in module.slide_decks %}
+                <div class="item">
+                    <div class="item-title">
+                        {% if deck.link %}
+                        <a href="{{ deck.link }}" target="_blank" rel="noopener noreferrer">{{ deck.title }}</a>
+                        {% else %}
+                        {{ deck.title }}
+                        {% endif %}
+                    </div>
+
+                    {% if deck.resource_links %}
+                    <div class="resource-links">
+                        <strong>Resources:</strong>
+                        <ul>
+                            {% for resource in deck.resource_links %}
+                            <li>
+                                <a href="{{ resource.url }}" target="_blank" rel="noopener noreferrer">{{ resource.title }}</a>
+                                {% if resource.description %}
+                                <span class="resource-description"> - {{ resource.description }}</span>
+                                {% endif %}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if module.labs %}
+        <div class="labs">
+            <h4>🧪 Labs</h4>
+            <div class="items-list">
+                {% for lab in module.labs %}
+                <div class="item">
+                    <div class="item-title">
+                        {% if lab.link %}
+                        <a href="{{ lab.link }}" target="_blank" rel="noopener noreferrer">{{ lab.title }}</a>
+                        {% else %}
+                        {{ lab.title }}
+                        {% endif %}
+                    </div>
+
+                    {% if lab.description %}
+                    <p class="lab-description">{{ lab.description }}</p>
+                    {% endif %}
+
+                    {% if lab.estimated_duration %}
+                    <p class="lab-duration"><strong>Duration:</strong> {{ lab.estimated_duration }}</p>
+                    {% endif %}
+
+                    {% if lab.github_link %}
+                    <p class="github-link">
+                        <a href="{{ lab.github_link }}" target="_blank" rel="noopener noreferrer">
+                            <strong>GitHub Repository →</strong>
+                        </a>
+                    </p>
+                    {% endif %}
+
+                    {% if lab.links %}
+                    <div class="resource-links">
+                        <strong>Links:</strong>
+                        <ul>
+                            {% for link in lab.links %}
+                            <li>
+                                <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.title }}</a>
+                                {% if link.description %}
+                                <span class="resource-description"> - {{ link.description }}</span>
+                                {% endif %}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
