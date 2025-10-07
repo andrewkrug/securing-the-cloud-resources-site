@@ -21,10 +21,20 @@
           // Specify a version number to identify the deployed version of your application in Datadog
           version: '{{ course.course.version }}',
           sessionSampleRate: 100,
-          sessionReplaySampleRate: 20,
+          sessionReplaySampleRate: 100,
           trackBfcacheViews: true,
           defaultPrivacyLevel: 'mask-user-input',
+          // Enable session replay features
+          trackUserInteractions: true,
+          trackResources: true,
+          trackLongTasks: true,
+          // Enable frustration signals for heatmaps
+          trackFrustrations: true,
+          enableExperimentalFeatures: ['clickmap'],
         });
+
+        // Start session replay recording
+        window.DD_RUM && window.DD_RUM.startSessionReplayRecording();
     </script>
 
     <style>
