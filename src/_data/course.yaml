@@ -106,7 +106,7 @@ modules:
 
             - id: "lab-1-4"
               title: "Lab 4: Setting up billing alarms with the AWS CDK"
-              link: "https://docs.google.com/document/d/1VhmWnEZFgfM79LlOYGxv4qbOKwq9hxvc8RiZ_MJTvHs/edit?tab=t.0"
+              link: "https://docs.google.com/document/d/1_pa2BAo58AysEfZmD4jOn1KK-f69EUg4PyRAdKO1GYQ/edit?usp=drive_link"
               order: 4
               links:
                 - title: "Git Repository for the CDK Example"
