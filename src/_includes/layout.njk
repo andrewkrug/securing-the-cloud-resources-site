@@ -10,29 +10,38 @@
         type="text/javascript">
     </script>
     <script>
-        window.DD_RUM && window.DD_RUM.init({
-          clientToken: 'pub3ef6a9995c34b679290a01a2d3c6fadd',
-          applicationId: 'ecfe7f3e-bb4d-48b5-b736-90128bef5936',
-          // `site` refers to the Datadog site parameter of your organization
-          // see https://docs.datadoghq.com/getting_started/site/
-          site: 'datadoghq.com',
-          service: 'securing-the-cloud-resources-site',
-          env: 'prod',
-          // Specify a version number to identify the deployed version of your application in Datadog
-          version: '{{ course.course.version }}',
-          sessionSampleRate: 100,
-          sessionReplaySampleRate: 100,
-          trackUserInteractions: true,
-          trackResources: true,
-          trackLongTasks: true,
-          trackFrustrations: true,
-          trackBfcacheViews: true,
-          defaultPrivacyLevel: 'mask-user-input',
-          enableExperimentalFeatures: ['clickmap'],
-        });
+        (function() {
+            if (window.DD_RUM) {
+                window.DD_RUM.init({
+                    clientToken: 'pub3ef6a9995c34b679290a01a2d3c6fadd',
+                    applicationId: 'ecfe7f3e-bb4d-48b5-b736-90128bef5936',
+                    site: 'datadoghq.com',
+                    service: 'securing-the-cloud-resources-site',
+                    env: 'prod',
+                    version: '{{ course.course.version }}',
+                    sessionSampleRate: 100,
+                    sessionReplaySampleRate: 100,
+                    trackUserInteractions: true,
+                    trackResources: true,
+                    trackLongTasks: true,
+                    trackFrustrations: true,
+                    trackViewsManually: false,
+                    trackInteractions: true,
+                    defaultPrivacyLevel: 'mask-user-input',
+                    enableExperimentalFeatures: ['clickmap'],
+                    allowedTracingUrls: [window.location.origin],
+                    // Enable Product Analytics features
+                    beforeSend: (event, context) => {
+                        // You can filter or modify events here if needed
+                        return true;
+                    },
+                    // Track custom user actions for product analytics
+                    actionNameAttribute: 'data-action-name',
+                });
 
-        // Start session replay recording
-        window.DD_RUM && window.DD_RUM.startSessionReplayRecording();
+                window.DD_RUM.startSessionReplayRecording();
+            }
+        })();
     </script>
 
     <style>
