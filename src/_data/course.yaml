@@ -148,7 +148,7 @@ modules:
 
       - id: "deck-2-2"
         title: "All about IaC (Infrastructure as Code)"
-        link: "hhttps://docs.google.com/presentation/d/1jpFfzDSESpNkmYedEbgNRlDO0ph3rFi6rcDb4fnMjMI/edit?usp=drive_link"
+        link: "https://docs.google.com/presentation/d/1jpFfzDSESpNkmYedEbgNRlDO0ph3rFi6rcDb4fnMjMI/edit?usp=drive_link"
         order: 2
         resource_links:
           - title: "AWS CloudFormation Overview"
@@ -200,8 +200,8 @@ modules:
                   description: "A simple demo application for a retail store on the web with misconfigurations. Based on Mr. Bluejays shoe store version 1."
 
             - id: "lab-2-2"
-              title: "Lab 2: Deploy the Shoe Store as a Single Stack"
-              link: "https://docs.google.com/document/d/1Aej3Y_2cXarBv16JEvfiuzPyZEifmjDpnuAyuzMwKwc/edit?tab=t.0"
+              title: "Lab 2: Introduction to Terraform"
+              link: "https://docs.google.com/document/d/1335F5CzHM0XmmmoaFt12spaxj1OCZy7PIkjZZrdKyws/edit?tab=t.0"
               order: 2
               links:
                 - title: "Git Repository for a Terraform Example"
@@ -209,13 +209,13 @@ modules:
                   description: "A simple demo application for a retail store on the web with misconfigurations. Based on Mr. Bluejays shoe store version 1."
 
             - id: "lab-2-3"
-              title: "Lab 3: Working with Terraform"
-              link: "https://docs.google.com/document/d/1mGB9pjURv4GAvLT59ftD-cxWYR-h9FvDclQ0d9cHyd0/edit?usp=drive_link"
+              title: "Lab 3: Deploying Nested Stacks with Cloudformation"
+              link: "https://docs.google.com/document/d/1mGB9pjURv4GAvLT59ftD-cxWYR-h9FvDclQ0d9cHyd0/edit?tab=t.0"
               order: 3
               links:
                 - title: "Git Repository for the Single Stack Shoe Store"
-                  url: "https://github.com/andrewkrug/mr_bluejays_demo_app"
-                  description: "A slightly vulnerable terraform mini project for first blush at terraform."
+                  url: "https://github.com/andrewkrug/mr_bluejays_demo_app_nested/tree/main#"
+                  description: "Nested version of Mr. Bluejays shoes."
 
             - id: "lab-2-4"
               title: "Lab 4: Setting up Flow Logging"
