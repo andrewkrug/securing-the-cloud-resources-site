@@ -7,11 +7,15 @@ layout: layout.njk
 
     {% for module in course.modules %}
     <div class="module" id="{{ module.id }}">
-        <div class="module-header">
-            <h3>{{ module.title }}</h3>
-            <p class="module-description">{{ module.description }}</p>
+        <div class="module-header" onclick="toggleModule(this)">
+            <div>
+                <h3>{{ module.title }}</h3>
+                <p class="module-description">{{ module.description }}</p>
+            </div>
+            <span class="toggle-icon">▼</span>
         </div>
 
+        <div class="module-content">
         {% if module.slide_decks %}
         <div class="slide-decks">
             <h4>📊 Slide Decks</h4>
@@ -97,6 +101,32 @@ layout: layout.njk
             </div>
         </div>
         {% endif %}
+        </div>
     </div>
     {% endfor %}
 </div>
+
+<script>
+function toggleModule(header) {
+    const module = header.parentElement;
+    const content = module.querySelector('.module-content');
+    const icon = header.querySelector('.toggle-icon');
+
+    if (module.classList.contains('collapsed')) {
+        module.classList.remove('collapsed');
+        content.style.maxHeight = content.scrollHeight + 'px';
+        icon.textContent = '▼';
+    } else {
+        module.classList.add('collapsed');
+        content.style.maxHeight = '0';
+        icon.textContent = '▶';
+    }
+}
+
+// Initialize all modules as expanded on page load
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.module-content').forEach(content => {
+        content.style.maxHeight = content.scrollHeight + 'px';
+    });
+});
+</script>
