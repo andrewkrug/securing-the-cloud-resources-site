@@ -22,14 +22,12 @@
           version: '{{ course.course.version }}',
           sessionSampleRate: 100,
           sessionReplaySampleRate: 100,
-          trackBfcacheViews: true,
-          defaultPrivacyLevel: 'mask-user-input',
-          // Enable session replay features
           trackUserInteractions: true,
           trackResources: true,
           trackLongTasks: true,
-          // Enable frustration signals for heatmaps
           trackFrustrations: true,
+          trackBfcacheViews: true,
+          defaultPrivacyLevel: 'mask-user-input',
           enableExperimentalFeatures: ['clickmap'],
         });
 
