@@ -417,7 +417,7 @@ modules:
             description: "Guide to getting started with AWS IAM Identity Center"
           - title: "Integrating AWS IAM Identity Center with External Identity Providers"
             url: "https://docs.aws.amazon.com/singlesignon/latest/userguide/integrating-with-idp.html"
-            description: "Instructions for integrating AWS IAM Identity Center with external identity providers
+            description: "Instructions for integrating AWS IAM Identity Center with external identity providers"
 
       - id: "deck-4-5"
         title: "Creating a security automation using Cloud Custodian"
@@ -463,7 +463,7 @@ modules:
               links:
                 - title: "Git Repository for the Terraform SCP Example"
                   url: "https://github.com/andrewkrug/organizations_terraform_sample"
-                  description: "A simple demo of how to use Terraform to create an AWS Organization with SCP
+                  description: "A simple demo of how to use Terraform to create an AWS Organization with SCP"
           
             - id: "lab-4-4"
               title: "Lab 4: Implementing SSO with AWS IAM Identity Center"
