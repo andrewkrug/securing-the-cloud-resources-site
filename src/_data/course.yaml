@@ -243,3 +243,238 @@ modules:
                 - title: "Git Repository for setting up flow logging"
                   url: "https://github.com/andrewkrug/vpc_flow_logging_example"
                   description: "A sample of two type of VPC flow logging."
+
+  - id: "module-3"
+    title: "Module 3: Detecting and Remediating Common Misconfigurations"
+    description: "In this module we will examine how to detect and remediate common misconfigurations in AWS across infrastructure and Identity and Access."
+    order: 1
+
+    slide_decks:
+      - id: "deck-3-1"
+        title: "Examining Common Misconfigurations"
+        link: "https://docs.google.com/presentation/d/1olglByojvP7kJ5B5tteeroQG5FdomBluy5ZuW-2_74o/edit?usp=drive_link"
+        order: 1
+        resource_links:
+          - title: "AWS Security Best Practices"
+            url: "https://aws.amazon.com/security/best-practices/"
+            description: "Official AWS security documentation"
+          - title: "CIS AWS Foundations Benchmark"
+            url: "https://www.cisecurity.org/benchmark/amazon_web_services/"
+            description: "CIS benchmark for AWS security best practices"
+          - title: "OWASP Cloud Security"
+            url: "https://owasp.org/www-project-cloud-security/"
+            description: "OWASP guidelines for cloud security"
+
+      - id: "deck-3-2"
+        title: "Auditing for Misconfigurations"
+        link: "https://docs.google.com/presentation/d/1jPCu6C3InN0WjlFOIOZ2oEkN4yULpHoNWdKpK_sthtQ/edit?usp=drive_link"
+        order: 2
+        resource_links:
+          - title: "AWS Config Overview"
+            url: "https://aws.amazon.com/config/" 
+            description: "Official AWS Config documentation"
+          - title: "Prowler Cli Open Source"
+            url: "https://prowler.com/"
+            description: "Open source security tool to perform AWS security best practices assessments, audits, incident response, continuous monitoring, and hardening."
+          - title: "Scout Suite Open Source"  
+            url: "https://github.com/nccgroup/ScoutSuite"
+            description: "Multi-Cloud Security Auditing Tool"
+
+      - id: "deck-3-3"
+        title: "Identity and Access Deep Dive"
+        link: "https://docs.google.com/presentation/d/1rjCA4hZU802gdgetG8SSLzrp0JaRlq1WUxFF1EoHgVQ/edit?usp=drive_link"
+        order: 3
+        resource_links:
+          - title: "AWS IAM Best Practices"
+            url: "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"
+            description: "Official AWS IAM best practices documentation"
+          - title: "Understanding IAM Policies"
+            url: "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html"
+            description: "Comprehensive guide to IAM policies and permissions"
+          - title: "AWS IAM Access Analyzer"
+            url: "https://aws.amazon.com/iam/features/analyze-access/"
+            description: "Tool to help identify resources that are shared with an external entity"
+
+    labs:
+      module:
+        - id: "module-3-labs"
+          title: "Module 3 Labs"
+          description: "Hands-on labs to reinforce the concepts learned in Module 3"
+          order: 1
+
+          exercises:
+            - id: "lab-3-1"
+              title: "Lab 1: Identification of Data Breach Root Causes"
+              link: "https://docs.google.com/document/d/1M9T4pssa6EzD8pFVFez-5JZMONgvMudaErcwvo7osjc/edit?usp=drive_link"
+              order: 1
+              links:
+                - title: "Cloud Breaches"
+                  url: "https://breaches.cloud/"
+                  description: "A collection of public cloud data breaches."
+                - title: "Common Cloud Misconfigurations"
+                  url: " https://www.prisma.io/blog/top-cloud-misconfigurations"
+                  description: "A blog post on common cloud misconfigurations."
+
+            - id: "lab-3-2"
+              title: "Lab 2: Auditing for Misconfigurations with AWS Config Rules (optional)"
+              link: "https://docs.google.com/document/d/1vST4ClBaxbtc7VmthP9T6ry4_VoioR_9DVC7RHfSpxY/edit?tab=t.0"
+              order: 2
+              links:
+                - title: "AWS Config Rules"
+                  url: "https://docs.aws.amazon.com/config/latest/developerguide/evaluater.html"
+                  description: "Official AWS Config Rules documentation"
+  
+            - id: "lab-3-3"
+              title: "Lab 3: Auditing for Misconfigurations with Prowler and Authoring Reports"
+              link: "https://docs.google.com/document/d/1--1-MTsWA8j_CNntxjyDTt5d90xKZQZ9mS6P_4szo7Q/edit?tab=t.0"
+              order: 3
+              links:
+                - title: "Prowler GitHub Repository"
+                  url: "https://prowler.com/"
+            
+            - id: "lab-3-4"
+              title: "Lab 4: Auditing Identity and Access with PMapper"
+              link: "https://docs.google.com/document/d/1HB3k1-Tp4Yz9tMZ21Su3ZmnnSIOjedEEwKs3WUhXfW4/edit?tab=t.0"
+              order: 4
+              links:
+                - title: "IAM vulnerable"
+                  url: "https://github.com/BishopFox/iam-vulnerable.git"
+                  description: "A collection of vulnerable IAM policies to help you learn about IAM misconfigurations."
+                - title: "PMapper GitHub Repository"
+                  url: "https://github.com/nccgroup/PMapper"
+                  description: "PMapper is a tool to help visualize and analyze AWS IAM permissions."
+
+            - id: "lab-3-5"
+              title: "Lab 5: Working with Permissions Boundaries"
+              link: "https://docs.google.com/document/d/1FtqIyq1AFpbgU_mCNmElJA5xuXeMWPG78JSkNoDPyw4/edit?usp=drive_link"
+              order: 5
+              links:
+                - title: "AWS IAM Permissions Boundaries"
+                  url: "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html"
+                  description: "Official AWS documentation on IAM permissions boundaries."
+                - title: "Git Repository for the Permissions Boundary Example"
+                  url: "https://github.com/andrewkrug/permissions_boundary_demo"
+                  description: "A simple demo of how to use permissions boundaries in AWS IAM."
+
+  - id: "module-4"
+    title: "Module 4: Maturing your security posture"
+    description: "In this module we will examine Guardrails of various types in AWS and how to implement measures to reduce security friction like SSO."
+    order: 1
+
+    slide_decks:
+      - id: "deck-4-1"
+        title: "Enabling and Onboarding Access Analyzer"
+        link: "https://docs.google.com/presentation/d/1olglByojvP7kJ5B5tteeroQG5FdomBluy5ZuW-2_74o/edit?usp=drive_link"
+        order: 1
+        resource_links:
+          - title: "AWS IAM Access Analyzer"
+            url: "https://aws.amazon.com/iam/features/analyze-access/"
+            description: "Tool to help identify resources that are shared with an external entity"
+          - title: "Getting Started with Access Analyzer"
+            url: "https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html"
+            description: "Official AWS documentation on getting started with Access Analyzer"
+      
+      - id: "deck-4-2"
+        title: "A briefing on Guardrails"
+        link: "https://docs.google.com/presentation/d/1b3tyC0BE23dIjcFWVOXrE5YsWy9-cmyYiLYyihkXQVo/edit?usp=drive_link"
+        order: 2
+        resource_links:
+          - title: "AWS Control Tower Overview"
+            url: "https://aws.amazon.com/controltower/"
+            description: "Official AWS Control Tower documentation"
+          - title: "AWS Organizations Overview"
+            url: "https://aws.amazon.com/organizations/"
+            description: "Official AWS Organizations documentation"
+          - title: "AWS Service Control Policies"
+            url: "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html"
+            description: "Comprehensive guide to AWS Service Control Policies"
+      
+      - id: "deck-4-3"
+        title: "A walk through of advanced features in AWS Organizations"
+        link: "https://docs.google.com/presentation/d/1WnKNda8ENdY5BlsKPV1eIJQNSwo5BgWWPuzOKu6k_SA/edit?usp=drive_link"
+        order: 3
+        resource_links:
+          - title: "AWS Organizations Features"
+            url: "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_features.html"
+            description: "Official AWS documentation on Organizations features"
+          - title: "Managing AWS Accounts"
+            url: "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html"
+            description: "Guide to managing AWS accounts within an organization"
+          - title: "Consolidated Billing in AWS Organizations"
+            url: "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_concepts_consolidated_billing.html"
+            description: "Overview of consolidated billing features in AWS Organizations"
+      
+      - id: "deck-4-4"
+        title: "Implementing SSO with AWS IAM Identity Center"
+        link: "https://docs.google.com/presentation/d/1cRsy7bP3I-uKe07heUkJ16W5o4Ze5nw9LxiKNZZX9VQ/edit?usp=drive_link"
+        order: 4
+        resource_links:
+          - title: "AWS IAM Identity Center Overview"
+            url: "https://aws.amazon.com/single-sign-on/"
+            description: "Official AWS IAM Identity Center documentation"
+          - title: "Getting Started with AWS IAM Identity Center"
+            url: "https://docs.aws.amazon.com/singlesignon/latest/userguide/getting-started.html"
+            description: "Guide to getting started with AWS IAM Identity Center"
+          - title: "Integrating AWS IAM Identity Center with External Identity Providers"
+            url: "https://docs.aws.amazon.com/singlesignon/latest/userguide/integrating-with-idp.html"
+            description: "Instructions for integrating AWS IAM Identity Center with external identity providers
+
+      - id: "deck-4-5"
+        title: "Creating a security automation using Cloud Custodian"
+        link: "https://docs.google.com/presentation/d/1SHyrCP006m8A3-5wKPNEbBEThUK170X7VusWJgpPVsQ/edit?usp=drive_link"
+        order: 5
+        resource_links:
+          - title: "Cloud Custodian Overview"
+            url: "https://cloudcustodian.io/"
+            description: "Official Cloud Custodian documentation"
+          - title: "Getting Started with Cloud Custodian"
+            url: "https://cloudcustodian.io/docs/getting-started.html"
+            description: "Guide to getting started with Cloud Custodian"
+    labs:
+      module:
+        - id: "module-4-labs"
+          title: "Module 4 Labs"
+          description: "Hands-on labs to reinforce the concepts learned in Module 4"
+          order: 1
+
+          exercises:
+            - id: "lab-4-1"
+              title: "Lab 1: Enabling and Onboarding Access Analyzer"
+              link: "https://docs.google.com/document/d/1HHgBgIHBjbj9vYNKqpEDrm9CzmG29DeBjrb8TEo1QK8/edit?usp=drive_link"
+              order: 1
+              links:
+                - title: "AWS IAM Access Analyzer Bootstrap Git Repository"
+                  url: "https://github.com/andrewkrug/access_analyzer_bootstrap"
+                  description: "A simple script to bootstrap Access Analyzer in your AWS account."
+            
+            - id: "lab-4-2"
+              title: "Lab 2: Exploring Guardrails through an SCP Generator"
+              link: "https://docs.google.com/document/d/1B7ak_yH_0fNtRawtf5Luj-J1jLS29_M61_i2sK3rCYE/edit?usp=sharing"
+              order: 2
+              links:
+                - title: "SCP Generator"
+                  url: "https://asecure.cloud"
+                  description: "An open source tool to help generate Service Control Policies (SCPs) for AWS Organizations."
+            
+            - id: "lab-4-3"
+              title: "Lab 3: Exploring Guardrails using Terraform and Testing"
+              link: "https://docs.google.com/document/d/1m0HoUzku_mQUkQlvetlS0F0AmIENbL7sk79FDr55Wos/edit?usp=sharing"
+              order: 3
+              links:
+                - title: "Git Repository for the Terraform SCP Example"
+                  url: "https://github.com/andrewkrug/organizations_terraform_sample"
+                  description: "A simple demo of how to use Terraform to create an AWS Organization with SCP
+          
+            - id: "lab-4-4"
+              title: "Lab 4: Implementing SSO with AWS IAM Identity Center"
+              link: "https://docs.google.com/document/d/1hksK2fYR6i0Ogj2rNRPlhtwuorlBMTW7B4haIpk9P48/edit?usp=drive_link"
+              order: 4
+
+            - id: "lab-4-5"
+              title: "Lab 5: Creating a security automation using Cloud Custodian"
+              link: "https://docs.google.com/document/d/1s1qf90sgPkKgpyGwVrytT_mPRZuPML3NU0Zzgs_C6D0/edit?usp=drive_link"
+              order: 5
+              links:
+                - title: "Git Repository for the Cloud Custodian Example"
+                  url: "https://github.com/andrewkrug/custodian_bootstrap_and_example"
+                  description: "A simple demo of how to use Cloud Custodian to automate security tasks in AWS."
