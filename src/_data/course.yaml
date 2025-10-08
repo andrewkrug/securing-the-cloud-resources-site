@@ -364,7 +364,7 @@ modules:
     slide_decks:
       - id: "deck-4-1"
         title: "Enabling and Onboarding Access Analyzer"
-        link: "https://docs.google.com/presentation/d/1olglByojvP7kJ5B5tteeroQG5FdomBluy5ZuW-2_74o/edit?usp=drive_link"
+        link: "https://docs.google.com/presentation/d/1X7qJbQZH0yeeuqBlYPLmvp9J8NqCJ52M9ZubWxv9Om0/edit?usp=drive_link"
         order: 1
         resource_links:
           - title: "AWS IAM Access Analyzer"
